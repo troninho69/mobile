@@ -24,6 +24,10 @@ expo-image e react native, o melhor é o expo-image
 são caracteristicas para reutilizarmos naquele componente
 - O que são Hooks?
 São funções especias do react, useState e useEffect fazem parte do core, mas pode ser encontrados em outras bibliotecas, todos os hook comecam com a palavra use, e só podem ser usados no topLevel
+- Para que serve e como usa o useState?
+Serve para atualizar componentes
+- Para que serve a hook useEffect?
+Funciona como um gatilho, toda vez que um componente carrega pela primeira vez, e toda vez que uma função atualiza ele dispara uma função
 
 Extra
 
