@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import Header from "./components/Header";
 import CardUser from "./components/CardUser";
 import { useEffect, useState } from "react";
@@ -14,8 +14,10 @@ export default function App() {
       if (response.ok) {
         console.log(data);
         setUsers(data.users);
+        setLoading(false);
       } else {
         console.log("Erro ao buscar usuários");
+        setLoading(false);
       }
     };
     getUsers();
@@ -24,15 +26,18 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-      {users.map((user) => (
-        <CardUser
-          key={user.id}
-          avatar={user.avatar}
-          name={user.name}
-          email={user.email}
-        />
-      ))}
-
+      {loading ? (
+        <Text>Carregando...</Text>
+      ) : (
+        users.map((user) => (
+          <CardUser
+            key={user.id}
+            avatar={user.avatar}
+            name={user.name}
+            email={user.email}
+          />
+        ))
+      )}
       <StatusBar style="auto" />
     </View>
   );
